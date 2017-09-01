@@ -1,7 +1,7 @@
 <?
 // NOIDELVV CORP TUTORIAL
 
-/* The array $_CORP_ACCESS_LEVELS contains the users' groups allowed to access the current website.
+/* $_CORP_ACCESS_LEVELS array contains users' groups allowed to access the current website.
 	Levels are the following:
 	- member: NoidelVV Member access
 	- admin: NoidelVV whole system's administrators
@@ -12,7 +12,7 @@ $_CORP_ACCESS_LEVELS = array(
 	"member"
 	);
 
-// The array $_VVA_FW contains the requests for vvaccount's parts, in this case only the user-management file
+// $_VVA_FW array contains vvaccount modules that have to be loaded, in this case the user-management file only
 $_VVA_FW = array(
 	"user"
 	);
@@ -38,7 +38,6 @@ if($_SESSION['loggedIn']) {
 			- logIn: determines whether the user is logged in or not (same as $_SESSION['loggedIn'])
 			- name: user's name in UPPERCASE
 			- surname: user's surname in UPPERCASE
-		To access this information you use the "->" operator eg. $_user->name , $_user->logIn
 		To obtain both user's name and surname in lowercase you can call $_user->getName()
 	*/
 
@@ -82,7 +81,5 @@ if($_SESSION['loggedIn']) {
 		<!-- User::getLoginUrl() get a url targeting corp.noidelvv.it that redirect the user on this page again after log in -->
 		<center>STOP!<br>NoidelVV Deep Calculator's access is restricted<br>To enter this page you must <a href='<? print(User::getLoginUrl()); ?>'>LOGIN</a></center>
      <? endif; ?>
-	 
-	 <!-- MIND THE DIFFERENCE between User (followed by "::") and $_user (followed by "->")! User refers to the class in general (eg. User::getLoginUrl() refers to any user), whilst $_user is an instance of User and refers to the current user (if logged in) (eg. $_user->getLogoutUrl() get the specific url for this user) -->
     </body>
 </html>
